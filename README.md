@@ -80,3 +80,48 @@ git push origin model_note
 ```
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmjvvf6vrj31ga0zo46y.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmjwuz61ij31gc0gatc9.jpg)
+
+```
+rails g contreller Notes
+---
+config/routes.rb
+---
+Rails.application.routes.draw do
+  root 'welcome#index'
+  resources :notes
+end
+---
+app/controllers/notes_controller.rb
+---
+  def index
+  end
+
+  def show
+  end
+
+  def new
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+
+  def note_params
+  end
+
+  def find_note
+  end
+end
+---
+rake routes
+```
+![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmk31p8lkj319e0ckmzr.jpg)
+![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmkc8qtxmj319a0lm0vy.jpg)
+![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmkcevx94j311a0kmgqh.jpg)
