@@ -288,3 +288,98 @@ git commit -m "add views"
 git push origin model_note
 ```
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmrldbnbdj31dw0mcgrb.jpg)
+
+```
+app/controllers/notes_controller.rb
+---
+class NotesController < ApplicationController
+  before_action :find_note, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @notes = Note.all.order("created_at DESC")
+  end
+
+  def show
+  end
+
+  def new
+    @note = Note.new
+  end
+
+  def create
+    @note = Note.new(note_params)
+    if @note.save
+    redirect_to @note
+    else
+    render 'new'
+   end
+  end
+
+  def edit
+  end
+
+  def update
+    if @note.update(note_params)
+      redirect_to @note
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+  		@note.destroy
+  		redirect_to notes_path
+  	end
+
+  private
+
+  def note_params
+    params.require(:note).permit(:title, :content)
+  end
+
+  def find_note
+    @note = Note.find(params[:id])
+  end
+end
+
+---
+app/views/notes/_form.html.haml
+---
+= simple_form_for @note do |f|
+ = f.input :title
+ = f.input :content
+ = f.button :submit
+---
+app/views/notes/edit.html.haml
+---
+%h1 Edit Note
+
+= render 'form'
+= link_to "cancel", note_path
+---
+app/views/notes/index.html.haml
+---
+- @notes.each do |note|
+  %h2= link_to note.title, note
+  %p= time_ago_in_words(note.created_at)
+---
+app/views/notes/new.html.haml
+---
+%h1 New Note
+
+= render 'form'
+= link_to "cancel", note_path
+---
+app/views/notes/show.html.haml
+---
+%h1= @note.title
+%p= @note.content
+
+=link_to "home", root_path(@note)
+=link_to "edit", edit_note_path(@note)
+=link_to "all notes", notes_path
+
+=link_to "Delete", note_path(@note), method: :delete, data: { confirm: "Are you sure?" }
+
+---
+```
