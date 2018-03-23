@@ -72,3 +72,11 @@ git push origin gem
 ```
 git checkout -b model_note
 rails g model Note title:string content:text
+rake db:migrate
+git status
+git add .
+git commit -m "add generate note model"
+git push origin model_note
+```
+![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmjvvf6vrj31ga0zo46y.jpg)
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmjwuz61ij31gc0gatc9.jpg)
