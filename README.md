@@ -394,8 +394,6 @@ git add .
 git commit -m "add edit & destroy notes"
 git push origin model_note
 ```
-```
-```
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmskhfc9ej31bu0jin25.jpg)
 ![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmsiy0r8oj30ou0hi753.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmsj4bbunj30us0fw3zg.jpg)
@@ -416,3 +414,42 @@ http://localhost:3000/users/sign_up
 ---
 ```
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmt5ajxdvj316g0kkmyq.jpg)
+
+```
+rails g migration add_user_id_to_notes user_id:integer
+rake db:migrate
+```
+```
+rails c
+@note = Note.first
+@note = Note.last
+exit
+```
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmtqk6u51j31jw0i4448.jpg)
+```
+app/models/note.rb
+---
+class Note < ApplicationRecord
+  belongs_to :user
+end
+---
+app/models/user.rb
+---
+class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  has_many :notes
+end
+---
+app/controllers/notes_controller.rb
+---
+def new
+  @note = current_user.notes.build
+end
+
+def create
+  @note = current_user.notes.build(note_params)
+```
+```
+
+```
