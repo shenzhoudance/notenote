@@ -384,12 +384,17 @@ app/views/notes/show.html.haml
 ---
 ```
 https://getbootstrap.com/docs/4.0/components/buttons/
+http://localhost:3000/notes
+---
+rails server
+
 git status
 git add .
 git commit -m "add edit & destroy notes"
 git push origin model_note
 ```
 ```
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmskhfc9ej31bu0jin25.jpg)
 ![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmsiy0r8oj30ou0hi753.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmsj4bbunj30us0fw3zg.jpg)
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmsjafk5nj30pk0acwf7.jpg)
