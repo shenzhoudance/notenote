@@ -69,3 +69,6 @@ git push origin gem
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmjit8mt9j31am0o6n25.jpg)
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmjn37s5oj31is11q7e0.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmjklzxi6j30kc078dgf.jpg)
+```
+git checkout -b model_note
+rails g model Note title:string content:text
