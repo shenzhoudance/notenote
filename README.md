@@ -285,3 +285,6 @@ app/views/notes/show.html.haml
 git status
 git add .
 git commit -m "add views"
+git push origin model_note
+```
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmrldbnbdj31dw0mcgrb.jpg)
