@@ -1065,6 +1065,134 @@ textarea {
 	min-height: 200px;
 }
 ```
+```
+
+```
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmwawsa0ej30vg0c4t9t.jpg)
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmwb72mkaj30ta0q6q4i.jpg)
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmwbdvzsij31kw0jbwfy.jpg)
+
+```
+app/views/layouts/application.html.haml
+---
+!!!
+%html
+%head
+	%title NoteNote | Online Notebook Application
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+%body
+	%header
+		.header_inner
+			= link_to "NoteNote", root_path, id: "logo"
+			%nav
+				- if user_signed_in?
+					= link_to "New Note", new_note_path
+					= link_to "Sign Out", destroy_user_session_path, method: :delete
+				- else
+					= link_to "Log In", new_user_session_path
+	%p.notice= notice
+	%p.alert= alert
+
+	= yield
+---
+```
+![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmwmqedg5j31kw09udhi.jpg)
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmwmih1dqj31kw0ij0ut.jpg)
+
+```
+https://ged.com/
+---
+#banner
+	.banner_content
+		%h1 NoteNote
+		%p 你的在线笔记本。再也不要忘记一个主意。
+		%button= link_to "Sign Up", new_user_registration_path
+#testimonial
+	.wrapper
+		%p.quote “最棒的笔记本应用程序”
+		%p.name - 肖威
+#callouts
+	.callout_inner
+		.wrapper
+			.callout
+				%h2 Notes
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+
+			.callout
+				%h2 Notes
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+
+			.callout
+				%h2 Notes
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+#bottom_cta
+	.wrapper
+		%h2 For Realz!
+		%p I want you to sign up... If you don’t. I will find you!
+		%button= link_to "点击注册!!!", new_user_registration_path
+
+%footer
+	%p &copy; SuperxSchool.com
+```
+```
+app/views/notes/_form.html.haml
+---
+= simple_form_for @note do |f|
+ = f.input :title
+ = f.input :content
+ = f.button :submit
+---
+app/views/notes/edit.html.haml
+---
+.wrapper_with_padding
+	%h1 Edit Note
+
+	= render 'form'
+
+	= link_to "Cancel", note_path
+---
+app/views/notes/index.html.haml
+---
+.wrapper_with_padding
+	#notes.clearfix
+		- unless @notes.blank?
+			- @notes.each do |note|
+				%a{ href: (url_for [note])}
+					.note
+						%p.title= note.title
+						%p.date= time_ago_in_words(note.created_at)
+		- else
+			%h2 Add a Note
+			%p It appears you haven't created any notes yet... Lets fix that. Why don't you go ahead and create a new note.
+			%button= link_to "New Note", new_note_path
+---
+app/views/notes/new.html.haml
+---
+.wrapper_with_padding
+	%h1 Add A Note
+
+	= render 'form'
+---
+app/views/notes/show.html.haml
+---
+.wrapper_with_padding
+	#note_show
+		%h1.title= @note.title
+		%p= simple_format(@note.content)
+
+		.buttons
+			= link_to "Edit", edit_note_path(@note), class: "button"
+			= link_to "Delete", note_path(@note), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+---
+```
+```
+git status
+git add .
+git commit -m "add all css stylesheet_link_tag"
+
+```
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmyeqfjj1j31kw0q9nf2.jpg)
+![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmyejkifhj31kw0jxtog.jpg)
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmye1owejj31kw0i8jt4.jpg)

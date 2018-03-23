@@ -1,3 +1,32 @@
-%h1 欢迎来到才华横溢的世界
+#banner
+	.banner_content
+		%h1 NoteNote
+		%p 你的在线笔记本。再也不要忘记一个主意。
+		%button= link_to "Sign Up", new_user_registration_path
+#testimonial
+	.wrapper
+		%p.quote “最棒的笔记本应用程序”
+		%p.name - 肖威
 
-= link_to "new", new_note_path, class:"btn btn-primary"
+#callouts
+	.callout_inner
+		.wrapper
+			.callout
+				%h2 Notes
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+
+			.callout
+				%h2 Notes
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+
+			.callout
+				%h2 Notes
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+#bottom_cta
+	.wrapper
+		%h2 打造职场精英！
+		%p 是你最明智的选择！
+		%button= link_to "点击注册!!!", new_user_registration_path
+
+%footer
+	%p &copy; Superxschool.com
