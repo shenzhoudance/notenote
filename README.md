@@ -405,3 +405,12 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 bundle install
 ---
 rails generate devise:install
+rails g devise:views
+rails g devise User
+rake db:migrate
+---
+rails server
+http://localhost:3000/users/sign_up
+---
+```
+![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmt5ajxdvj316g0kkmyq.jpg)
