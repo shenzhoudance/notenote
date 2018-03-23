@@ -503,3 +503,4 @@ git status
 git add .
 git commit -m "change root based on if user_signed_in?"
 ```
+![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmv79zvooj31go0mwjx0.jpg)
