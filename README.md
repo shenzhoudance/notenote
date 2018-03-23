@@ -451,5 +451,9 @@ def create
   @note = current_user.notes.build(note_params)
 ```
 ```
-
+git status
+git add .
+git commit -m "add user belongs"
+git push origin devise
 ```
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmtuxj8y4j31cc0py7ag.jpg)
