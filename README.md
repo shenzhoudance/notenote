@@ -475,3 +475,7 @@ rails c
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmuf34cm1j30om090aau.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmufuak54j31ji0dk784.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmuemhdbbj30te0f675d.jpg)
+```
+git status
+git add .
+git commit -m "change index to show only current users notes"
