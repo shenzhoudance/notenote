@@ -125,3 +125,72 @@ rake routes
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmk31p8lkj319e0ckmzr.jpg)
 ![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmkc8qtxmj319a0lm0vy.jpg)
 ![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmkcevx94j311a0kmgqh.jpg)
+
+```
+git status
+git add .
+git commit -m "add root & controller note"
+git push origin model_note
+```
+![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmkezzm8vj31e00twjyf.jpg)
+
+```
+app/views/notes/_form.html.haml
+---
+= simple_form_for @note do |f|
+ = f.input :title
+ = f.input :content
+ = f.button :submit
+---
+app/views/notes/edit.html.haml
+app/views/notes/index.html.haml
+app/views/notes/new.html.haml
+---
+%h1 才华横溢的领域
+
+= render 'form'
+---
+app/views/notes/show.html.haml
+
+---
+rails server
+http://localhost:3000/notes/new
+```
+![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmkl00avpj30xw07maau.jpg)
+
+```
+class NotesController < ApplicationController
+  def index
+  end
+
+  def show
+  end
+
+  def new
+    @note = Note.new
+  end
+
+  def create
+    @note = Note.new（notes_params）
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+
+  def note_params
+    params.require(:note).permit(:title, :content)
+  end
+
+  def find_note
+  end
+end
+```
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpml8we4otj31kw0d040g.jpg)
