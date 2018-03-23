@@ -383,6 +383,7 @@ app/views/notes/show.html.haml
 
 ---
 ```
+```
 https://getbootstrap.com/docs/4.0/components/buttons/
 http://localhost:3000/notes
 ---
@@ -392,6 +393,7 @@ git status
 git add .
 git commit -m "add edit & destroy notes"
 git push origin model_note
+```
 ```
 ```
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmskhfc9ej31bu0jin25.jpg)
