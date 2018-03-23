@@ -457,3 +457,21 @@ git commit -m "add user belongs"
 git push origin devise
 ```
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmtuxj8y4j31cc0py7ag.jpg)
+
+```
+app/controllers/notes_controller.rb
+---
+def index
+  @notes = Note.where(user_id: current_user)
+end
+---
+rails c
+2.3.1 :001 > @note = Note.first
+2.3.1 :002 > @note.user_id = 1
+2.3.1 :003 > @note.save
+2.3.1 :004 > exit
+---
+```
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmuf34cm1j30om090aau.jpg)
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmufuak54j31ji0dk784.jpg)
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmuemhdbbj30te0f675d.jpg)
