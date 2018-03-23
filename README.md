@@ -398,3 +398,19 @@ git push origin model_note
 ![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmsiy0r8oj30ou0hi753.jpg)
 ![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmsj4bbunj30us0fw3zg.jpg)
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmsjafk5nj30pk0acwf7.jpg)
+
+```
+git checkout -b devise
+gem 'devise', '~> 4.4', '>= 4.4.3'
+bundle install
+---
+rails generate devise:install
+rails g devise:views
+rails g devise User
+rake db:migrate
+---
+rails server
+http://localhost:3000/users/sign_up
+---
+```
+![image](https://ws2.sinaimg.cn/large/006tKfTcgy1fpmt5ajxdvj316g0kkmyq.jpg)
