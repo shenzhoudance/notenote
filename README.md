@@ -35,3 +35,37 @@ git push origin welcome
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmj7126ncj31820mijuc.jpg)
 ![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmj6uysyzj319s0p279a.jpg)
 ![image](https://ws3.sinaimg.cn/large/006tKfTcgy1fpmj6o1ycdj318q0o2n2d.jpg)
+
+```
+git checkout -b gem
+---
+https://rubygems.org/
+gem 'haml', '~> 5.0', '>= 5.0.4'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'simple_form', '~> 3.5', '>= 3.5.1'
+bundle install
+---
+app/views/welcome/index.html.haml
+---
+%h1 欢迎来到才华横溢的世界
+app/assets/stylesheets/application.css.scss
+---
+@import "bootstrap-sprockets";
+@import "bootstrap";
+---
+app/assets/javascripts/application.js
+---
+//= require bootstrap-sprockets
+//= require turbolinks
+---
+rails generate simple_form:install --bootstrap
+rails server
+---
+git status
+git add .
+git commit -m "add bootstrap & edit welcome"
+git push origin gem
+```
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmjit8mt9j31am0o6n25.jpg)
+![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fpmjn37s5oj31is11q7e0.jpg)
+![image](https://ws1.sinaimg.cn/large/006tKfTcgy1fpmjklzxi6j30kc078dgf.jpg)
