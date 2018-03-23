@@ -479,3 +479,27 @@ rails c
 git status
 git add .
 git commit -m "change index to show only current users notes"
+```
+```
+config/routes.rb
+---
+Rails.application.routes.draw do
+  devise_for :users
+  root 'welcome#index'
+  resources :notes
+  authenticated :user do
+    root 'notes#index', as: "authenticated_root"
+  end
+end
+---
+app/controllers/notes_controller.rb
+---
+before_action :find_note, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!
+```
+# 如果用户没有登录，就需要放回登录页面；
+```
+git status
+git add .
+git commit -m "change root based on if user_signed_in?"
+```
